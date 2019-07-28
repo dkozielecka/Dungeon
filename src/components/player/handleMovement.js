@@ -1,31 +1,21 @@
-import store from '../../duck/store/store'
-import { movePlayer } from "../../duck/actions/moveActions";
+import { dispatchMove } from "../../duck/actions/moveActions";
 
 const handleMovement = ( player ) => {
-
-    const directionMove = ( direction ) => {
-        store.dispatch( {
-            type: 'MOVE_PLAYER',
-            payload: {
-                position: movePlayer( direction )
-            }
-        } )
-    };
 
     const handleKeyDown = ( e ) => {
         switch ( e.key ) {
             case 'w':
             case 'ArrowUp':
-                return directionMove( 'UP' );
+                return dispatchMove( 'UP' );
             case 's':
             case 'ArrowDown':
-                return directionMove( 'DOWN' );
+                return dispatchMove( 'DOWN' );
             case 'a':
             case 'ArrowLeft':
-                return directionMove( 'LEFT' );
+                return dispatchMove( 'LEFT' );
             case 'd':
             case 'ArrowRight':
-                return directionMove( 'RIGHT' );
+                return dispatchMove( 'RIGHT' );
             default:
                 return null
         }

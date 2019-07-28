@@ -13,6 +13,7 @@ export const playerReducer = ( state = initialState, action ) => {
     switch ( action.type ) {
         case MOVE_PLAYER:
             return {
+                ...state,
                 ...action.payload
             };
         default :
