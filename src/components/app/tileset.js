@@ -11,6 +11,7 @@ import t9 from "../../assets/img/tileset/t9.png"
 import t10 from "../../assets/img/tileset/t10.png"
 import t11 from "../../assets/img/tileset/t11.png"
 import t12 from "../../assets/img/tileset/t12.png"
+import t20 from '../../assets/img/peaks/t20.png'
 
 const tileset = ( value ) => {
     switch ( value ) {
@@ -40,6 +41,8 @@ const tileset = ( value ) => {
             return t11;
         case 12:
             return t12;
+        case 20:
+            return t20;
         default:
             return t0;
     }
