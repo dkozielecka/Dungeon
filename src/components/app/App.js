@@ -6,7 +6,7 @@ import {
     Map
 } from "./style";
 import { TILE_SET } from "../../config/constans";
-import Tileset from "./Tileset";
+import tileset from "./tileset";
 
 const App = () => {
     return (
@@ -16,7 +16,7 @@ const App = () => {
                 <Player/>
                 {
                     TILE_SET.map( ( row ) => row.map( ( column ) =>
-                        <Tile value={ Tileset( column ) }
+                        <Tile value={ tileset( column ) }
                               key={ Math.random() * 1000 }/> ) )
                 }
             </Map>
