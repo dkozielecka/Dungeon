@@ -1,0 +1,1 @@
+export const GO_LEFT = 'GO_LEFT';
