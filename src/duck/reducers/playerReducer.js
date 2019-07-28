@@ -1,7 +1,6 @@
 import {
-    GO_LEFT,
-    GO_RIGHT
-} from "../actions/actionTypes";
+    MOVE_PLAYER
+} from "../actions/moveActions";
 
 const initialState = {
     position: {
@@ -12,12 +11,10 @@ const initialState = {
 
 export const playerReducer = ( state = initialState, action ) => {
     switch ( action.type ) {
-        case GO_LEFT:
-            console.log( 'go left' );
-            break;
-        case GO_RIGHT:
-            console.log( 'go right' );
-            break;
+        case MOVE_PLAYER:
+            return {
+                ...action.payload
+            };
         default :
             return state
     }

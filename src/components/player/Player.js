@@ -1,6 +1,7 @@
 import React from 'react';
 import { Character } from "./style";
 import { connect } from "react-redux";
+import handleMovement from "./handleMovement";
 
 const mapStateToProps = ( state ) => ( {
     ...state,
@@ -15,4 +16,4 @@ const Player = ( { player } ) => {
     )
 };
 
-export default connect( mapStateToProps )( Player );
+export default connect( mapStateToProps )( handleMovement( Player ) );

@@ -26,4 +26,4 @@ export const TILE_SET = [
 ];
 
 export const MAP_WIDTH = '672';
-export const MAP_HEIGHT = '322';
+export const MAP_HEIGHT = '300';

@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import gameReducer from './duck/reducers/gameReducer'
+import store from './duck/store/store'
 import App from './components/app/App';
-
-const store = createStore( gameReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
 
 ReactDOM.render(
     <Provider store={ store }>
