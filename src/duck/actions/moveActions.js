@@ -7,22 +7,28 @@ import {
 
 export const MOVE_PLAYER = 'MOVE_PLAYER';
 
+const observeBlocks = ( oldPos, newPos ) => {
+    const { tiles } = store.getState().map;
+    const x = newPos.x / TILE.height;
+    const y = newPos.y / TILE.width;
+    const nextTile = tiles[ x ][ y ];
+    return nextTile === 1
+};
+
 const observeBoundries = ( oldPos, newPos ) => {
     return ( newPos.y >= 0 && newPos.y <= MAP_WIDTH ) && ( newPos.x >= 0 && newPos.x <= MAP_HEIGHT ) ? newPos : oldPos
 };
 
-export const dispatchMove = ( direction ) => {
-    const oldPos = store.getState().player.position;
+const dispatchMove = ( newPos ) => {
     store.dispatch( {
         type: 'MOVE_PLAYER',
         payload: {
-            position: observeBoundries( oldPos, movePlayer( direction ) )
+            position: newPos
         }
     } )
 };
 
-const movePlayer = ( direction ) => {
-    const oldPos = store.getState().player.position;
+const movePlayer = ( oldPos, direction ) => {
     switch ( direction ) {
         case 'DOWN':
             return {
@@ -46,5 +52,15 @@ const movePlayer = ( direction ) => {
             };
         default:
             return oldPos
+    }
+
+};
+
+export const attemptMove = ( direction ) => {
+    const oldPos = store.getState().player.position;
+    const newPos = movePlayer( oldPos, direction );
+
+    if ( observeBoundries( oldPos, newPos ) && observeBlocks( oldPos, newPos ) ) {
+        dispatchMove( newPos )
     }
 };

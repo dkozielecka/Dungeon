@@ -7,15 +7,23 @@ import {
 } from "./style";
 import { TILE_SET } from "../../config/constans";
 import tileset from "./tileset";
+import { dispatchTile } from "../../duck/actions/mapActions";
+import { connect } from "react-redux";
 
-const App = () => {
+const mapStateToProps = ( state ) => ( {
+    tiles: state.map.tiles
+} );
+
+const World = ( { tiles } ) => {
+    dispatchTile( TILE_SET );
+
     return (
         <>
             <GlobalStyles/>
             <Map>
                 <Player/>
                 {
-                    TILE_SET.map( ( row ) => row.map( ( column ) =>
+                    tiles.map( ( row ) => row.map( ( column ) =>
                         <Tile value={ tileset( column ) }
                               key={ Math.random() * 1000 }/> ) )
                 }
@@ -25,4 +33,4 @@ const App = () => {
     )
 };
 
-export default App;
+export default connect( mapStateToProps )( World );

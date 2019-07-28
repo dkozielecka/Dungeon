@@ -1,4 +1,4 @@
-import { dispatchMove } from "../../duck/actions/moveActions";
+import { attemptMove } from "../../duck/actions/moveActions";
 
 const handleMovement = ( player ) => {
 
@@ -6,16 +6,16 @@ const handleMovement = ( player ) => {
         switch ( e.key ) {
             case 'w':
             case 'ArrowUp':
-                return dispatchMove( 'UP' );
+                return attemptMove( 'UP' );
             case 's':
             case 'ArrowDown':
-                return dispatchMove( 'DOWN' );
+                return attemptMove( 'DOWN' );
             case 'a':
             case 'ArrowLeft':
-                return dispatchMove( 'LEFT' );
+                return attemptMove( 'LEFT' );
             case 'd':
             case 'ArrowRight':
-                return dispatchMove( 'RIGHT' );
+                return attemptMove( 'RIGHT' );
             default:
                 return null
         }
