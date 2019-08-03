@@ -17,6 +17,9 @@ import door2 from "../../assets/img/items/doors/door2.png"
 import bones from "../../assets/img/items/bones.png"
 import torch from "../../assets/img/items/torch/torch.png"
 import peaks0 from "../../assets/img/items/peaks/peaks0.png"
+import cobweb from "../../assets/img/items/cobweb.png"
+import cobweb1 from "../../assets/img/items/cobweb1.png"
+import skull from "../../assets/img/items/skull.png"
 
 export const tileset = ( value ) => {
     switch ( value ) {
@@ -53,9 +56,6 @@ export const tileset = ( value ) => {
 
 export const itemsTileset = ( value ) => {
     switch ( value ) {
-        case 0: {
-            return null
-        }
         case 1: {
             return flag
         }
@@ -73,6 +73,15 @@ export const itemsTileset = ( value ) => {
         }
         case 6: {
             return peaks0
+        }
+        case 7: {
+            return cobweb
+        }
+        case 8: {
+            return cobweb1
+        }
+        case 9: {
+            return skull;
         }
         default: {
             return null

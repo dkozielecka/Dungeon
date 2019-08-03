@@ -7,22 +7,34 @@ import p4 from "../../assets/img/priest/p4.png"
 import { keyframes } from "styled-components";
 
 const idleAnimation = keyframes`
-  0% {
-    background-image: url(${ p1 });
-} 
-  25% {
-    background-image: url(${ p2 });
-}
-  50% {
-    background-image: url(${ p3 });
-}
-  75% {
-    background-image: url(${ p4 });
-}
-  100% {
-    background-image: url(${ p1 });
-}
-`;
+    0% { 
+      background-image: url(${ p1 })
+    }
+    24% { 
+      background-image: url(${ p1 })
+    }
+    25% { 
+      background-image: url(${ p2 }) 
+    }
+    49%  { 
+      background-image: url(${ p2 }) 
+    }
+    50%  { 
+      background-image: url(${ p3 }) 
+    }
+    74%  { 
+      background-image: url(${ p3 })
+    }
+    75%  { 
+      background-image: url(${ p4 }) 
+    }
+    99%  { 
+      background-image: url(${ p4 })
+    }
+    100% { 
+      background-image: url(${ p1 })
+    } 
+  `;
 
 export const Character = styled.div`
   width: ${ TILE.width }px;
@@ -31,7 +43,7 @@ export const Character = styled.div`
   top: ${ props => props.x }px;
   left: ${ props => props.y }px;
   background-image: url(${ p1 });
-  animation: ${ idleAnimation } .2s linear infinite;
+  animation: ${ idleAnimation } 3s steps(5) infinite;
   background-size: 100%;
   background-repeat: no-repeat;
   image-rendering: pixelated;

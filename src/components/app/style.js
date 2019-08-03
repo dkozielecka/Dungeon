@@ -23,7 +23,8 @@ export const ItemTile = styled.div`
   background-repeat: no-repeat;
   image-rendering: pixelated;
   position: absolute;
-  left: 150px
+  left: ${props => props.x}px;
+  top: ${props => props.y}px;
 `;
 
 export const Map = styled.div`

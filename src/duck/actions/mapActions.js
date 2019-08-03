@@ -1,7 +1,7 @@
 import store from "../store/store";
 
 export const ADD_TILES = 'ADD_TILES';
-export const ADD_ITEMS_TILES = 'ADD_ITEMS_TILES';
+export const ADD_ITEMS = 'ADD_ITEMS_TILES';
 
 export const dispatchTile = ( tiles ) => {
     store.dispatch( {
@@ -12,11 +12,11 @@ export const dispatchTile = ( tiles ) => {
     } )
 };
 
-export const dispatchItemTile = ( itemsTiles ) => {
+export const dispatchItemTile = ( items ) => {
     store.dispatch( {
-        type: ADD_ITEMS_TILES,
+        type: ADD_ITEMS,
         payload: {
-            itemsTiles
+            items
         }
     } )
 };

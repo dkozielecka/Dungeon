@@ -1,11 +1,11 @@
 import {
-    ADD_ITEMS_TILES,
+    ADD_ITEMS,
     ADD_TILES
 } from "../actions/mapActions";
 
 const initialState = {
     tiles: [],
-    itemsTiles: []
+    items: []
 };
 
 export const mapReducer = ( state = initialState, action ) => {
@@ -15,7 +15,7 @@ export const mapReducer = ( state = initialState, action ) => {
                 ...state,
                 ...action.payload
             };
-        case ADD_ITEMS_TILES:
+        case ADD_ITEMS:
             return {
                 ...state,
                 ...action.payload

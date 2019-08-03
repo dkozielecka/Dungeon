@@ -7,7 +7,7 @@ import {
     ItemTile
 } from "./style";
 import {
-    ITEMS_TILE_SET,
+    ITEMS,
     TILE_SET
 } from "../../config/constans";
 import {
@@ -22,15 +22,12 @@ import { connect } from "react-redux";
 
 const mapStateToProps = ( state ) => ( {
     tiles: state.map.tiles,
-    itemsTiles: state.map.itemsTiles
+    items: state.map.items
 } );
 
-const World = ( { tiles, itemsTiles } ) => {
+const World = ( { tiles, items } ) => {
     dispatchTile( TILE_SET );
-    dispatchItemTile( ITEMS_TILE_SET );
-
-    console.log( ITEMS_TILE_SET );
-    // console.log(tiles, itemsTiles);
+    dispatchItemTile( ITEMS );
 
     return (
         <>
@@ -42,10 +39,13 @@ const World = ( { tiles, itemsTiles } ) => {
                               key={ Math.random() * 1000 }/> ) )
                 }
                 {
-                    itemsTiles.map( row => row.map( column =>
-                        <ItemTile value={ itemsTileset( column ) }
-                                  key={ Math.random() * 1000 }/> ) )
+                    items.map( ( item, index ) =>
+                        <ItemTile value={ itemsTileset( item.value ) }
+                                  x={ item.x }
+                                  y={ item.y }
+                                  key={ index }/> )
                 }
+
                 <Player/>
             </Map>
 
