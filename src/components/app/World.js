@@ -3,30 +3,50 @@ import Player from "../player/Player";
 import { GlobalStyles } from "../../config/GlobalStyles";
 import {
     Tile,
-    Map
+    Map,
+    ItemTile
 } from "./style";
-import { TILE_SET } from "../../config/constans";
-import tileset from "./tileset";
-import { dispatchTile } from "../../duck/actions/mapActions";
+import {
+    ITEMS_TILE_SET,
+    TILE_SET
+} from "../../config/constans";
+import {
+    tileset,
+    itemsTileset
+} from "./tileset";
+import {
+    dispatchItemTile,
+    dispatchTile
+} from "../../duck/actions/mapActions";
 import { connect } from "react-redux";
 
 const mapStateToProps = ( state ) => ( {
-    tiles: state.map.tiles
+    tiles: state.map.tiles,
+    itemsTiles: state.map.itemsTiles
 } );
 
-const World = ( { tiles } ) => {
+const World = ( { tiles, itemsTiles } ) => {
     dispatchTile( TILE_SET );
+    dispatchItemTile( ITEMS_TILE_SET );
+
+    console.log( ITEMS_TILE_SET );
+    // console.log(tiles, itemsTiles);
 
     return (
         <>
             <GlobalStyles/>
             <Map>
-                <Player/>
                 {
                     tiles.map( ( row ) => row.map( ( column ) =>
                         <Tile value={ tileset( column ) }
                               key={ Math.random() * 1000 }/> ) )
                 }
+                {
+                    itemsTiles.map( row => row.map( column =>
+                        <ItemTile value={ itemsTileset( column ) }
+                                  key={ Math.random() * 1000 }/> ) )
+                }
+                <Player/>
             </Map>
 
         </>

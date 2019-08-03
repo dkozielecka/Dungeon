@@ -10,6 +10,5 @@ overflow: hidden;
 display: flex;
 justify-content: center;
 align-items: center;
-transform: scale(2);
 background-image: url(${ bg });
 }`;

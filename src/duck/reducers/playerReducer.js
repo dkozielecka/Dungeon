@@ -4,8 +4,8 @@ import {
 
 const initialState = {
     position: {
-        x: 16,
-        y: 32
+        x: 50,
+        y: 50
     }
 };
 

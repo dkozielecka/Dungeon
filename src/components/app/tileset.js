@@ -11,9 +11,14 @@ import t9 from "../../assets/img/tileset/t9.png"
 import t10 from "../../assets/img/tileset/t10.png"
 import t11 from "../../assets/img/tileset/t11.png"
 import t12 from "../../assets/img/tileset/t12.png"
-import t20 from '../../assets/img/peaks/t20.png'
+import flag from "../../assets/img/items/flag.png"
+import door1 from "../../assets/img/items/doors/door1.png"
+import door2 from "../../assets/img/items/doors/door2.png"
+import bones from "../../assets/img/items/bones.png"
+import torch from "../../assets/img/items/torch/torch.png"
+import peaks0 from "../../assets/img/items/peaks/peaks0.png"
 
-const tileset = ( value ) => {
+export const tileset = ( value ) => {
     switch ( value ) {
         case 0:
             return t0;
@@ -41,11 +46,36 @@ const tileset = ( value ) => {
             return t11;
         case 12:
             return t12;
-        case 20:
-            return t20;
         default:
             return t0;
     }
 };
 
-export default tileset;
+export const itemsTileset = ( value ) => {
+    switch ( value ) {
+        case 0: {
+            return null
+        }
+        case 1: {
+            return flag
+        }
+        case 2: {
+            return door1
+        }
+        case 3: {
+            return door2
+        }
+        case 4: {
+            return bones
+        }
+        case 5: {
+            return torch
+        }
+        case 6: {
+            return peaks0
+        }
+        default: {
+            return null
+        }
+    }
+};
