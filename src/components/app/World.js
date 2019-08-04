@@ -4,7 +4,7 @@ import { GlobalStyles } from "../../config/GlobalStyles";
 import {
     Map
 } from "../map/Map";
-import {Tile} from "../map/Tile";
+import { Tile } from "../map/Tile";
 import {
     ITEMS,
     TILE_SET
@@ -18,6 +18,8 @@ import {
 } from "../../duck/actions/mapActions";
 import { connect } from "react-redux";
 import { itemsParser } from "../parsers/itemsParser";
+import { requestAnimationFlamethrower } from "./requestAnimationFrame";
+import store from "../../duck/store/store"
 
 const mapStateToProps = ( state ) => ( {
     tiles: state.map.tiles,
@@ -31,6 +33,9 @@ const World = ( { tiles, items } ) => {
     return (
         <>
             <GlobalStyles/>
+            {
+                requestAnimationFlamethrower( store.getState().map.traps.flamethrower )
+            }
             <Map>
                 {
                     tiles.map( ( row ) => row.map( ( column ) =>

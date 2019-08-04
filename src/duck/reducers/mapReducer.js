@@ -1,6 +1,9 @@
 import {
     ADD_ITEMS,
-    ADD_TILES
+    ADD_TILES,
+    SET_FRAME_FLAMETHROWER,
+    SET_FRAME_PEAKS,
+    SET_FRAME_ARROW
 } from "../actions/mapActions";
 
 const initialState = {
@@ -31,6 +34,39 @@ export const mapReducer = ( state = initialState, action ) => {
                 ...state,
                 ...action.payload
             };
+        case SET_FRAME_PEAKS: {
+            return {
+                ...state,
+                traps: {
+                    ...state.traps,
+                    peaks: {
+                        ...action.payload
+                    }
+                }
+            }
+        }
+        case SET_FRAME_ARROW: {
+            return {
+                ...state,
+                traps: {
+                    ...state.traps,
+                    arrow: {
+                        ...action.payload
+                    }
+                }
+            }
+        }
+        case SET_FRAME_FLAMETHROWER: {
+            return {
+                ...state,
+                traps: {
+                    ...state.traps,
+                    flamethrower: {
+                        ...action.payload
+                    }
+                }
+            }
+        }
         default :
             return state
     }
