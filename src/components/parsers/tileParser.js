@@ -25,7 +25,7 @@ import ladder from "../../assets/img/items/ladder.png"
 import arrow1 from "../../assets/img/items/arrow/arrow1.png"
 import flamethrower1 from "../../assets/img/items/flamethrower/flamethrower1.png"
 
-export const tileset = ( value ) => {
+export const tileParser = ( value ) => {
     switch ( value ) {
         case 0:
             return t0;
@@ -58,7 +58,7 @@ export const tileset = ( value ) => {
     }
 };
 
-export const itemsTileset = ( value ) => {
+export const itemsTileParser = ( value ) => {
     switch ( value ) {
         case 1: {
             return flag1

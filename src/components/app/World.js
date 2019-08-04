@@ -2,22 +2,22 @@ import React from 'react';
 import Player from "../player/Player";
 import { GlobalStyles } from "../../config/GlobalStyles";
 import {
-    Tile,
     Map
-} from "./style";
+} from "../map/Map";
+import {Tile} from "../map/Tile";
 import {
     ITEMS,
     TILE_SET
 } from "../../config/constans";
 import {
-    tileset
-} from "./tileset";
+    tileParser
+} from "../parsers/tileParser";
 import {
     dispatchItemTile,
     dispatchTile
 } from "../../duck/actions/mapActions";
 import { connect } from "react-redux";
-import { itemsParser } from "./itemsParser";
+import { itemsParser } from "../parsers/itemsParser";
 
 const mapStateToProps = ( state ) => ( {
     tiles: state.map.tiles,
@@ -34,7 +34,7 @@ const World = ( { tiles, items } ) => {
             <Map>
                 {
                     tiles.map( ( row ) => row.map( ( column ) =>
-                        <Tile value={ tileset( column ) }
+                        <Tile value={ tileParser( column ) }
                               key={ Math.random() * 1000 }/> ) )
                 }
                 {
