@@ -20,6 +20,7 @@ export const requestAnimationPeaks = ( value ) => {
     }
 };
 export const requestAnimationFlamethrower = ( value ) => {
+    console.log(value)
     if ( value === 4 ) {
         return dispatchFlamethrower( 1 )
     } else {

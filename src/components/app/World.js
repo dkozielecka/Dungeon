@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Player from "../player/Player";
 import { GlobalStyles } from "../../config/GlobalStyles";
 import {
@@ -18,7 +18,11 @@ import {
 } from "../../duck/actions/mapActions";
 import { connect } from "react-redux";
 import { itemsParser } from "../parsers/itemsParser";
-import { requestAnimationFlamethrower } from "./requestAnimationFrame";
+import {
+    requestAnimationArrow,
+    requestAnimationFlamethrower,
+    requestAnimationPeaks
+} from "./requestAnimationFrame";
 import store from "../../duck/store/store"
 
 const mapStateToProps = ( state ) => ( {
@@ -30,12 +34,15 @@ const World = ( { tiles, items } ) => {
     dispatchTile( TILE_SET );
     dispatchItemTile( ITEMS );
 
+    useEffect( () => {
+        requestAnimationFlamethrower( store.getState().map.traps.flamethrower.frame );
+        requestAnimationArrow( store.getState().map.traps.arrow.frame );
+        requestAnimationPeaks( store.getState().map.traps.peaks.frame );
+    } );
+
     return (
         <>
             <GlobalStyles/>
-            {
-                requestAnimationFlamethrower( store.getState().map.traps.flamethrower )
-            }
             <Map>
                 {
                     tiles.map( ( row ) => row.map( ( column ) =>

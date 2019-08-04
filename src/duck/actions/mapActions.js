@@ -19,11 +19,7 @@ export const dispatchPeaks = ( frame ) => {
     store.dispatch( {
         type: SET_FRAME_PEAKS,
         payload: {
-            traps: {
-                peaks: {
-                    frame
-                }
-            }
+            frame
         }
     } )
 };
@@ -32,11 +28,7 @@ export const dispatchArrow = ( frame ) => {
     store.dispatch( {
         type: SET_FRAME_ARROW,
         payload: {
-            traps: {
-                peaks: {
-                    frame
-                }
-            }
+            frame
         }
     } )
 };
@@ -45,11 +37,7 @@ export const dispatchFlamethrower = ( frame ) => {
     store.dispatch( {
         type: SET_FRAME_FLAMETHROWER,
         payload: {
-            traps: {
-                peaks: {
-                    frame
-                }
-            }
+            frame
         }
     } )
 };
