@@ -22,6 +22,8 @@ import cobweb1 from "../../assets/img/items/cobweb1.png"
 import skull from "../../assets/img/items/skull.png"
 import stones from "../../assets/img/items/stones.png"
 import ladder from "../../assets/img/items/ladder.png"
+import arrow1 from "../../assets/img/items/arrow/arrow1.png"
+import flamethrower1 from "../../assets/img/items/flamethrower/flamethrower1.png"
 
 export const tileset = ( value ) => {
     switch ( value ) {
@@ -90,6 +92,12 @@ export const itemsTileset = ( value ) => {
         }
         case 11: {
             return ladder;
+        }
+        case 12: {
+            return arrow1;
+        }
+        case 13: {
+            return flamethrower1;
         }
         default: {
             return null

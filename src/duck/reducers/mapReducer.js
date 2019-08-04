@@ -5,7 +5,18 @@ import {
 
 const initialState = {
     tiles: [],
-    items: []
+    items: [],
+    traps: {
+        flamethrower: {
+            frame: 1
+        },
+        arrow: {
+            frame: 1
+        },
+        peaks: {
+            frame: 1
+        }
+    }
 };
 
 export const mapReducer = ( state = initialState, action ) => {

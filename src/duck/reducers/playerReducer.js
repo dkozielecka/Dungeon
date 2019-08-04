@@ -6,7 +6,8 @@ const initialState = {
     position: {
         x: 50,
         y: 50
-    }
+    },
+    health: 100
 };
 
 export const playerReducer = ( state = initialState, action ) => {
