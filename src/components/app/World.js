@@ -3,22 +3,21 @@ import Player from "../player/Player";
 import { GlobalStyles } from "../../config/GlobalStyles";
 import {
     Tile,
-    Map,
-    ItemTile
+    Map
 } from "./style";
 import {
     ITEMS,
     TILE_SET
 } from "../../config/constans";
 import {
-    tileset,
-    itemsTileset
+    tileset
 } from "./tileset";
 import {
     dispatchItemTile,
     dispatchTile
 } from "../../duck/actions/mapActions";
 import { connect } from "react-redux";
+import { itemsParser } from "./itemsParser";
 
 const mapStateToProps = ( state ) => ( {
     tiles: state.map.tiles,
@@ -40,10 +39,7 @@ const World = ( { tiles, items } ) => {
                 }
                 {
                     items.map( ( item, index ) =>
-                        <ItemTile value={ itemsTileset( item.value ) }
-                                  x={ item.x }
-                                  y={ item.y }
-                                  key={ index }/> )
+                        itemsParser( item, index ) )
                 }
 
                 <Player/>

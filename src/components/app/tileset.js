@@ -11,15 +11,17 @@ import t9 from "../../assets/img/tileset/t9.png"
 import t10 from "../../assets/img/tileset/t10.png"
 import t11 from "../../assets/img/tileset/t11.png"
 import t12 from "../../assets/img/tileset/t12.png"
-import flag from "../../assets/img/items/flag.png"
+import flag1 from "../../assets/img/items/flag/flag1.png"
 import door1 from "../../assets/img/items/doors/door1.png"
 import door2 from "../../assets/img/items/doors/door2.png"
 import bones from "../../assets/img/items/bones.png"
-import torch from "../../assets/img/items/torch/torch.png"
+import torch from "../../assets/img/items/torch/torch1.png"
 import peaks0 from "../../assets/img/items/peaks/peaks0.png"
 import cobweb from "../../assets/img/items/cobweb.png"
 import cobweb1 from "../../assets/img/items/cobweb1.png"
 import skull from "../../assets/img/items/skull.png"
+import stones from "../../assets/img/items/stones.png"
+import ladder from "../../assets/img/items/ladder.png"
 
 export const tileset = ( value ) => {
     switch ( value ) {
@@ -57,7 +59,7 @@ export const tileset = ( value ) => {
 export const itemsTileset = ( value ) => {
     switch ( value ) {
         case 1: {
-            return flag
+            return flag1
         }
         case 2: {
             return door1
@@ -82,6 +84,12 @@ export const itemsTileset = ( value ) => {
         }
         case 9: {
             return skull;
+        }
+        case 10: {
+            return stones;
+        }
+        case 11: {
+            return ladder;
         }
         default: {
             return null
