@@ -1,10 +1,4 @@
-import {
-    ADD_ITEMS,
-    ADD_TILES,
-    SET_FRAME_FLAMETHROWER,
-    SET_FRAME_PEAKS,
-    SET_FRAME_ARROW
-} from "../actions/mapActions";
+import {ADD_ITEMS, ADD_TILES, TICK} from "../actions/mapActions";
 
 const initialState = {
     tiles: [],
@@ -22,8 +16,8 @@ const initialState = {
     }
 };
 
-export const mapReducer = ( state = initialState, action ) => {
-    switch ( action.type ) {
+export const mapReducer = (state = initialState, action) => {
+    switch (action.type) {
         case ADD_TILES:
             return {
                 ...state,
@@ -34,37 +28,13 @@ export const mapReducer = ( state = initialState, action ) => {
                 ...state,
                 ...action.payload
             };
-        case SET_FRAME_PEAKS: {
+        case TICK: {
+            const prevFrames = Object.entries(state.traps);
+            const nextFrames = prevFrames.map(([trap, {frame}]) => [trap, {frame: frame === 4 ? 1 : frame + 1}]);
+
             return {
                 ...state,
-                traps: {
-                    ...state.traps,
-                    peaks: {
-                        ...action.payload
-                    }
-                }
-            }
-        }
-        case SET_FRAME_ARROW: {
-            return {
-                ...state,
-                traps: {
-                    ...state.traps,
-                    arrow: {
-                        ...action.payload
-                    }
-                }
-            }
-        }
-        case SET_FRAME_FLAMETHROWER: {
-            return {
-                ...state,
-                traps: {
-                    ...state.traps,
-                    flamethrower: {
-                        ...action.payload
-                    }
-                }
+                traps: Object.fromEntries(nextFrames)
             }
         }
         default :

@@ -129,17 +129,17 @@ export const ITEMS = [
         y: 100
     },
     {
-        value: 13,
+        value: 12,
         x: 550,
         y: 550
     },
     {
-        value: 13,
+        value: 12,
         x: 600,
         y: 550
     },
     {
-        value: 12,
+        value: 13,
         x: 700,
         y: 100
     }

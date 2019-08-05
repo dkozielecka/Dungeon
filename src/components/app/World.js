@@ -1,57 +1,44 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import Player from "../player/Player";
-import { GlobalStyles } from "../../config/GlobalStyles";
-import {
-    Map
-} from "../map/Map";
-import { Tile } from "../map/Tile";
-import {
-    ITEMS,
-    TILE_SET
-} from "../../config/constans";
-import {
-    tileParser
-} from "../parsers/tileParser";
-import {
-    dispatchItemTile,
-    dispatchTile
-} from "../../duck/actions/mapActions";
-import { connect } from "react-redux";
-import { itemsParser } from "../parsers/itemsParser";
-import {
-    requestAnimationArrow,
-    requestAnimationFlamethrower,
-    requestAnimationPeaks
-} from "./requestAnimationFrame";
-import store from "../../duck/store/store"
+import {GlobalStyles} from "../../config/GlobalStyles";
+import {Map} from "../map/Map";
+import {Tile} from "../map/Tile";
+import {ITEMS, TILE_SET} from "../../config/constans";
+import {tileParser} from "../parsers/tileParser";
+import {dispatchItemTile, dispatchTick, dispatchTile} from "../../duck/actions/mapActions";
+import {connect} from "react-redux";
+import {itemsParser} from "../parsers/itemsParser";
 
-const mapStateToProps = ( state ) => ( {
+const mapStateToProps = (state) => ({
     tiles: state.map.tiles,
-    items: state.map.items
-} );
+    items: state.map.items,
+    traps: state.map.traps
+});
 
-const World = ( { tiles, items } ) => {
-    dispatchTile( TILE_SET );
-    dispatchItemTile( ITEMS );
+const World = ({tiles, items}) => {
 
-    useEffect( () => {
-        requestAnimationFlamethrower( store.getState().map.traps.flamethrower.frame );
-        requestAnimationArrow( store.getState().map.traps.arrow.frame );
-        requestAnimationPeaks( store.getState().map.traps.peaks.frame );
-    } );
+    useEffect(() => {
+        dispatchTile(TILE_SET);
+        dispatchItemTile(ITEMS);
+    }, []);
+
+    useEffect(() => {
+        const intervalRef = setInterval(dispatchTick, 700);
+        return () => clearInterval(intervalRef);
+    }, []);
 
     return (
         <>
             <GlobalStyles/>
             <Map>
                 {
-                    tiles.map( ( row ) => row.map( ( column ) =>
-                        <Tile value={ tileParser( column ) }
-                              key={ Math.random() * 1000 }/> ) )
+                    tiles.map((row) => row.map((column) =>
+                        <Tile value={tileParser(column)}
+                              key={Math.random() * 1000}/>))
                 }
                 {
-                    items.map( ( item, index ) =>
-                        itemsParser( item, index ) )
+                    items.map((item, index) =>
+                        itemsParser(item, index))
                 }
 
                 <Player/>
@@ -61,4 +48,4 @@ const World = ( { tiles, items } ) => {
     )
 };
 
-export default connect( mapStateToProps )( World );
+export default connect(mapStateToProps)(World);

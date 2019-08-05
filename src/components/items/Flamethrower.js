@@ -3,7 +3,7 @@ import { TILE } from "../../config/constans";
 
 export const Flamethrower = styled.div`
   width: ${ TILE.width }px;
-  height: ${ TILE.height }px;
+  height: ${ TILE.height * 2 }px;
   background-image: url(${ props => props.value });
   background-size: 100%;
   background-repeat: no-repeat;
