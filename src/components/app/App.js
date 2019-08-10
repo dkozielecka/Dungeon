@@ -25,7 +25,6 @@ const mapStateToProps = ( state ) => ( {
 } );
 
 const App = ( { tiles, items, game } ) => {
-
     useEffect( () => {
         dispatchTile( TILE_SET );
         dispatchItemTile( ITEMS );
@@ -37,7 +36,7 @@ const App = ( { tiles, items, game } ) => {
         }
         const intervalRef = setInterval( dispatchTick, 700 );
         return () => clearInterval( intervalRef );
-    }, [] );
+    } );
 
     return (
         <>
@@ -57,7 +56,6 @@ const App = ( { tiles, items, game } ) => {
 
                     <Player/>
                 </Map> }
-
         </>
     )
 };

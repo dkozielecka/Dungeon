@@ -11,4 +11,5 @@ display: flex;
 justify-content: center;
 align-items: center;
 background-image: url(${ bg });
+font-size: 10px;
 }`;
