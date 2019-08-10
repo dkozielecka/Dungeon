@@ -53,13 +53,13 @@ export const ITEMS = [
         x: 500,
         y: 200
     }, {
-        value: 6,
+        value: 13,
         x: 500,
-        y: 150
+        y: 100
     }, {
-        value: 6,
+        value: 13,
         x: 550,
-        y: 150
+        y: 100
     }, {
         value: 6,
         x: 550,
@@ -143,17 +143,17 @@ export const ITEMS = [
         x: 700,
         y: 100
     },{
-        value: 10,
+        value: 6,
         x: 650,
         y: 200
     },
     {
-        value: 10,
+        value: 6,
         x: 600,
         y: 200
     },
     {
-        value: 10,
+        value: 6,
         x: 700,
         y: 200
     }
