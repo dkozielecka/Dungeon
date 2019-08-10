@@ -21,6 +21,7 @@ import cobweb from "../../assets/img/items/cobweb.png"
 import cobweb1 from "../../assets/img/items/cobweb1.png"
 import skull from "../../assets/img/items/skull.png"
 import stones from "../../assets/img/items/stones.png"
+import stones1 from "../../assets/img/items/stones1.png"
 import ladder from "../../assets/img/items/ladder.png"
 import arrow1 from "../../assets/img/items/arrow/arrow1.png"
 import flamethrower1 from "../../assets/img/items/flamethrower/flamethrower1.png"
@@ -98,6 +99,9 @@ export const itemsTileParser = ( value ) => {
         }
         case 13: {
             return flamethrower1;
+        }
+        case 14:{
+            return stones1;
         }
         default: {
             return null

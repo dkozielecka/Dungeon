@@ -23,7 +23,7 @@ const World = ({tiles, items}) => {
     }, []);
 
     useEffect(() => {
-        const intervalRef = setInterval(dispatchTick, 700);
+        const intervalRef = setInterval(dispatchTick, 500);
         return () => clearInterval(intervalRef);
     }, []);
 

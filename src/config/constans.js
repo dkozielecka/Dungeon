@@ -105,11 +105,11 @@ export const ITEMS = [
         x: 1100,
         y: 100
     }, {
-        value: 10,
+        value: 14,
         x: 100,
         y: 600
     }, {
-        value: 10,
+        value: 14,
         x: 1100,
         y: 600
     },
@@ -142,6 +142,20 @@ export const ITEMS = [
         value: 13,
         x: 700,
         y: 100
+    },{
+        value: 10,
+        x: 650,
+        y: 200
+    },
+    {
+        value: 10,
+        x: 600,
+        y: 200
+    },
+    {
+        value: 10,
+        x: 700,
+        y: 200
     }
 ];
 
