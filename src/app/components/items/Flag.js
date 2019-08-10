@@ -1,9 +1,9 @@
 import styled, { keyframes } from "styled-components";
-import flag1 from "../../assets/img/items/flag/flag1.png";
-import flag2 from "../../assets/img/items/flag/flag2.png";
-import flag3 from "../../assets/img/items/flag/flag3.png";
-import flag4 from "../../assets/img/items/flag/flag4.png";
-import { TILE } from "../../config/constans";
+import flag1 from "../../../assets/img/items/flag/flag1.png";
+import flag2 from "../../../assets/img/items/flag/flag2.png";
+import flag3 from "../../../assets/img/items/flag/flag3.png";
+import flag4 from "../../../assets/img/items/flag/flag4.png";
+import { TILE } from "../../../config/constans";
 
 const flagAnimation = keyframes`
     0% { 

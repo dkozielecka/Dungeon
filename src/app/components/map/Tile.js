@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TILE } from "../../config/constans";
+import { TILE } from "../../../config/constans";
 
 export const Tile = styled.div`
   width: ${ TILE.width }px;

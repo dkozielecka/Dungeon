@@ -1,20 +1,20 @@
-import store from "../../duck/store/store";
+import store from "../../../duck/store/store";
 import flamethrower1
-    from "../../assets/img/items/flamethrower/flamethrower1.png";
+    from "../../../assets/img/items/flamethrower/flamethrower1.png";
 import flamethrower2
-    from "../../assets/img/items/flamethrower/flamethrower2.png";
+    from "../../../assets/img/items/flamethrower/flamethrower2.png";
 import flamethrower3
-    from "../../assets/img/items/flamethrower/flamethrower3.png";
+    from "../../../assets/img/items/flamethrower/flamethrower3.png";
 import flamethrower4
-    from "../../assets/img/items/flamethrower/flamethrower4.png";
-import arrow1 from "../../assets/img/items/arrow/arrow1.png";
-import arrow2 from "../../assets/img/items/arrow/arrow2.png";
-import arrow3 from "../../assets/img/items/arrow/arrow3.png";
-import arrow4 from "../../assets/img/items/arrow/arrow4.png";
-import peaks0 from "../../assets/img/items/peaks/peaks0.png";
-import peaks1 from "../../assets/img/items/peaks/peaks1.png";
-import peaks2 from "../../assets/img/items/peaks/peaks2.png";
-import peaks3 from "../../assets/img/items/peaks/peaks3.png";
+    from "../../../assets/img/items/flamethrower/flamethrower4.png";
+import arrow1 from "../../../assets/img/items/arrow/arrow1.png";
+import arrow2 from "../../../assets/img/items/arrow/arrow2.png";
+import arrow3 from "../../../assets/img/items/arrow/arrow3.png";
+import arrow4 from "../../../assets/img/items/arrow/arrow4.png";
+import peaks0 from "../../../assets/img/items/peaks/peaks0.png";
+import peaks1 from "../../../assets/img/items/peaks/peaks1.png";
+import peaks2 from "../../../assets/img/items/peaks/peaks2.png";
+import peaks3 from "../../../assets/img/items/peaks/peaks3.png";
 
 export const animationParser = ( value ) => {
     switch ( value ) {

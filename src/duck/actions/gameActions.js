@@ -6,7 +6,7 @@ export const dispatchStart = ( ready ) => {
     store.dispatch( {
         type: START_GAME,
         payload: {
-            ready
+            isStart: ready
         }
-    })
+    } )
 };

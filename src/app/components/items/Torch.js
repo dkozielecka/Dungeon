@@ -1,9 +1,9 @@
 import styled, { keyframes } from "styled-components";
-import torch1 from "../../assets/img/items/torch/torch1.png";
-import torch2 from "../../assets/img/items/torch/torch2.png";
-import torch3 from "../../assets/img/items/torch/torch3.png";
-import torch4 from "../../assets/img/items/torch/torch4.png";
-import { TILE } from "../../config/constans";
+import torch1 from "../../../assets/img/items/torch/torch1.png";
+import torch2 from "../../../assets/img/items/torch/torch2.png";
+import torch3 from "../../../assets/img/items/torch/torch3.png";
+import torch4 from "../../../assets/img/items/torch/torch4.png";
+import { TILE } from "../../../config/constans";
 
 const torchAnimation = keyframes`
     0% { 

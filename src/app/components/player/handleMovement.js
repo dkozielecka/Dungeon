@@ -1,4 +1,4 @@
-import { attemptMove } from "../../duck/actions/moveActions";
+import { attemptMove } from "../../../duck/actions/moveActions";
 
 const handleMovement = ( player ) => {
 

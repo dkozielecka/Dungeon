@@ -1,7 +1,7 @@
 import {
     MAP_HEIGHT,
     MAP_WIDTH,
-} from "../../config/constans";
+} from "../../../config/constans";
 
 import styled from 'styled-components'
 

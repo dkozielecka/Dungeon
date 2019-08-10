@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { TILE } from "../../config/constans";
-import p1 from "../../assets/img/priest/p1.png"
-import p2 from "../../assets/img/priest/p2.png"
-import p3 from "../../assets/img/priest/p3.png"
-import p4 from "../../assets/img/priest/p4.png"
+import { TILE } from "../../../config/constans";
+import p1 from "../../../assets/img/priest/p1.png"
+import p2 from "../../../assets/img/priest/p2.png"
+import p3 from "../../../assets/img/priest/p3.png"
+import p4 from "../../../assets/img/priest/p4.png"
 import { keyframes } from "styled-components";
 
 const idleAnimation = keyframes`

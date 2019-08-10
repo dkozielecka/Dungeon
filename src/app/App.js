@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react';
-import Player from "../player/Player";
-import { GlobalStyles } from "../../config/GlobalStyles";
-import { Map } from "../map/Map";
-import { Tile } from "../map/Tile";
+import Player from "./components/player/Player";
+import { GlobalStyles } from "../config/GlobalStyles";
+import { Map } from "./components/map/Map";
+import { Tile } from "./components/map/Tile";
 import {
     ITEMS,
     TILE_SET
-} from "../../config/constans";
-import { tileParser } from "../parsers/tileParser";
+} from "../config/constans";
+import { tileParser } from "./components/parsers/tileParser";
 import {
     dispatchItemTile,
     dispatchTick,
     dispatchTile
-} from "../../duck/actions/mapActions";
+} from "../duck/actions/mapActions";
 import { connect } from "react-redux";
-import { itemsParser } from "../parsers/itemsParser";
-import Menu from "../menu/Menu";
+import { itemsParser } from "./components/parsers/itemsParser";
+import Menu from "./components/menu/Menu";
 
 const mapStateToProps = ( state ) => ( {
     tiles: state.map.tiles,
