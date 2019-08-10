@@ -1,10 +1,20 @@
-import { combineReducers } from 'redux';
-import { playerReducer } from './playerReducer'
-import { mapReducer } from "./mapReducer";
+import { START_GAME } from "../actions/gameActions";
 
-const gameReducer = combineReducers( {
-    player: playerReducer,
-    map: mapReducer
-} );
+const initialState = {
+    isStart: false,
+    sounds: false
+};
 
-export default gameReducer;
+export const gameReducer = ( state = initialState, action ) => {
+    switch ( action.type ) {
+        case START_GAME: {
+            return {
+                ...state,
+                isStart: action.payload
+            }
+        }
+        default: {
+            return state
+        }
+    }
+};
