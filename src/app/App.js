@@ -16,15 +16,17 @@ import {
 import { connect } from "react-redux";
 import { itemsParser } from "./components/parsers/itemsParser";
 import { Menu } from "./components/menu/Menu";
+import { HeartsBar } from "./components/heartsBar/HeartsBar";
 
 const mapStateToProps = ( state ) => ( {
     tiles: state.map.tiles,
     items: state.map.items,
     traps: state.map.traps,
-    game: state.game
+    game: state.game,
+    health: state.player.health
 } );
 
-const App = ( { tiles, items, game } ) => {
+const App = ( { tiles, items, game, health } ) => {
     useEffect( () => {
         dispatchTile( TILE_SET );
         dispatchItemTile( ITEMS );
@@ -44,6 +46,7 @@ const App = ( { tiles, items, game } ) => {
             { !game.isStart ?
                 <Menu/> :
                 <Map>
+                    <HeartsBar health={health}/>
                     {
                         tiles.map( ( row ) => row.map( ( column ) =>
                             <Tile value={ tileParser( column ) }
