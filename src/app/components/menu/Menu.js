@@ -9,22 +9,25 @@ import { Arrow } from "./Arrow";
 import { connect } from "react-redux";
 import { dispatchStart } from "../../../duck/actions/gameActions";
 
-class Menu extends React.PureComponent {
+export class Menu extends React.PureComponent {
     state = {
         start: {
+            index: 0,
             isActive: true
         },
-        settings: {
+        instruction: {
+            index: 1,
             isActive: false
         },
-        instruction: {
+        settings: {
+            index: 2,
+            isActive: false
+        },
+        credits: {
+            index: 3,
             isActive: false
         }
     };
-
-    mapStateToProps = ( state ) => ( {
-        game: state.game
-    } );
 
     componentDidMount() {
         document.addEventListener( 'keyup', this.handleKeyUp )
@@ -35,24 +38,60 @@ class Menu extends React.PureComponent {
     }
 
     handleKeyUp = ( e ) => {
-        if ( e.key === 'Enter' ) {
-            dispatchStart( true )
+        const { start } = this.state;
+        const prev = Object.values( this.state )
+            .filter( item => item.isActive )[ 0 ].index;
+
+        switch ( e.key ) {
+            case 'Enter': {
+                return start.isActive ? dispatchStart( true ) : null
+            }
+            case 'ArrowUp': {
+                const next = prev === 0 ? 3 : prev - 1;
+                return this.activateNewItem( next )
+            }
+            case 'ArrowDown': {
+                const next = prev < 3 ? prev + 1 : 0;
+                return this.activateNewItem( next )
+            }
+            default: {
+                return null
+            }
         }
     };
 
+    activateNewItem( next ) {
+        const newState = Object.entries( this.state )
+            .map( item => {
+                item[ 1 ].index === next
+                    ? item[ 1 ].isActive = true
+                    : item[ 1 ].isActive = false;
+                return item
+            } );
+
+        this.setState( prev => ( {
+            state: Object.fromEntries( newState )
+        } ) );
+    }
+
     render() {
-        const { start, settings, instruction } = this.state;
+        const { start, settings, instruction, credits } = this.state;
         return (
             <Wrapper>
                 <Header>Dungeon game</Header>
                 <List>
                     <ListItem><Arrow active={ start.isActive }/>Start</ListItem>
-                    <ListItem><Arrow active={ settings.isActive }/>Settings</ListItem>
                     <ListItem><Arrow active={ instruction.isActive }/>Instruction</ListItem>
+                    <ListItem><Arrow active={ settings.isActive }/>Settings</ListItem>
+                    <ListItem><Arrow active={ credits.isActive }/>Credits</ListItem>
                 </List>
             </Wrapper>
         )
     }
-};
+}
 
-export default connect( this.mapStateToProps )( Menu );
+const mapStateToProps = ( state ) => ( {
+    game: state.game
+} );
+
+connect( mapStateToProps )( Menu );

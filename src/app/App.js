@@ -15,7 +15,7 @@ import {
 } from "../duck/actions/mapActions";
 import { connect } from "react-redux";
 import { itemsParser } from "./components/parsers/itemsParser";
-import Menu from "./components/menu/Menu";
+import { Menu } from "./components/menu/Menu";
 
 const mapStateToProps = ( state ) => ( {
     tiles: state.map.tiles,
