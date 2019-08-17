@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import store from './duck/store/store'
-import World from './app/App';
+import App from './app/App';
+import {SoundService, SoundServiceContext} from "./app/services/SoundsService";
 
 ReactDOM.render(
     <Provider store={ store }>
-        <World/>
+        <SoundServiceContext.Provider value={new SoundService()}>
+            <App />
+        </SoundServiceContext.Provider>
     </Provider>
     , document.getElementById( 'root' ) );
