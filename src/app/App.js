@@ -43,11 +43,6 @@ const App = ({tiles, items, game, health}) => {
 
     const sounds = useContext(SoundServiceContext)
 
-    useEffect(() => {
-        sounds.init()
-    }, [sounds])
-
-
     return (
         <>
             <GlobalStyles/>
