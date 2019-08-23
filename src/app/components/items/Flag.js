@@ -45,5 +45,5 @@ export const Flag = styled.div`
   position: absolute;
   left: ${ props => props.x }px;
   top: ${ props => props.y }px;
-  animation: ${ flagAnimation } 2s steps(5) infinite;
+  animation: ${ flagAnimation } 1s steps(5) infinite;
 `;

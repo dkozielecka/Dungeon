@@ -1,27 +1,35 @@
 import React from "react";
-import Sound from 'react-sound';
-import {loop} from '../../assets/sounds/loop.mp3'
+import {
+    Howl
+} from 'howler';
+import loop from '../../assets/sounds/loop.mp3'
 
-class SoundService extends React.PureComponent {
-    state = {
-        isActive: true
+class SoundService {
+
+    constructor() {
+        this.isActive = true;
+        this.loop = new Howl( {
+            src: [ loop ],
+            volume: 0.5,
+            loop: true
+        } )
     }
 
-    switchSounds(value) {
-        this.setState((prev) => ({
+    switchSounds( value ) {
+        this.setState( ( prev ) => ( {
             ...prev,
             isActive: value
-        }))
+        } ) )
     }
 
-    render() {
-        const {isActive} = this.state;
-        return (
-            <Sound loop={true} playStatus={isActive ? 'PLAYING' : 'STOPPED'} url={loop}/>
-        )
+    init() {
+        this.isActive && this.loop.once( 'load',  () => {
+            console.log( 'play' );
+            this.loop.play();
+        } );
     }
 }
 
 export const SoundServiceContext = React.createContext();
 
-export {SoundService}
+export { SoundService }

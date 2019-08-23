@@ -45,5 +45,5 @@ export const Torch = styled.div`
   position: absolute;
   left: ${ props => props.x }px;
   top: ${ props => props.y }px;
-  animation: ${ torchAnimation } 2s steps(5) infinite;
+  animation: ${ torchAnimation } 1s steps(5) infinite;
 `;
